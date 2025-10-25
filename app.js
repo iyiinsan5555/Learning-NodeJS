@@ -1,15 +1,22 @@
-// npm! NPM = Node Package Manager
-// pip = Package Installer Python
+const {readFile, writeFile} = require("fs").promises
 
 
-//Stayed at Share Code --> 2:02:53'
-
-for (i=0; i<5;i++) {
-    for (j=0; j<i;j++) {
-        string = "*" 
-        console.log(string.repeat(j));
+const reading = async () => {
+    try {
+        const data = await readFile("./test.txt", "utf-8");
+        //if successful it will return data else give error and we catch it with "catch"
+        console.log(data);
     }
-    console.log("");
+    catch (error) {
+        console.log(error);
+    }
 }
 
-//Stayed at Event Loop 2:27:38
+
+reading();
+
+
+//In server side you will always need to set up your code asynchronously
+// asynchronous = non-blocking
+// synchronous = blocking
+//Stayed at 3:12:58 Events Info
