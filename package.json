@@ -1,0 +1,23 @@
+{
+  "name": "learning-nodejs",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [],
+  "homepage": "https://github.com/iyiinsan5555/Learning-NodeJS#readme",
+  "bugs": {
+    "url": "https://github.com/iyiinsan5555/Learning-NodeJS/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iyiinsan5555/Learning-NodeJS.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  }
+}
