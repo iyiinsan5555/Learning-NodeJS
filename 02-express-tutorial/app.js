@@ -1,35 +1,29 @@
 console.log('Express Tutorial')
 
+const {readFileSync} = require("fs");
+
+//Get all files
+const pagenotfoundHTML = readFileSync("./pagenotfound.html"); //we only get file (with syncronous code) once so it's not problem
+
+
 const http = require("http");
 
 const server = http.createServer((req, res) => {
     console.log("server got request");
     
-    res.writeHead(200,{"content-type": "text/html"})
+    const url = req.url;
 
-    html = `
-    <div style="display: flex; align-items: center; justify-content: center; width: 100vw; height: 100vh;">
-        <h1>Hello, world!</h1>
-    </div>
-    `;
-
-    html404 = `
-    <div style="display: flex; align-items: center; justify-content: center; width: 100vw; height: 100vh;">
-        <h1>Page not found!</h1>
-    </div>
-    `;
-
-    res.write(html, (err) => {
-        console.log(err + " error");
-    })
-
-    if (res.statusCode === 404 ) {
-        res.write(html404);
+    if (url === "/") { //Home page
+        res.end("Home page");
     }
-    res.end();
+    else if (url === "/about") { //About page
+        res.end("about page");
+    } else {
+        res.write(pagenotfoundHTML);
+        res.end();
+    }
 
-    console.log(res.statusCode)
-    console.log(res.statusMessage)
+
 });
 
 server.listen(2000);
