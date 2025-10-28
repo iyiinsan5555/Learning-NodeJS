@@ -1,6 +1,7 @@
 const express = require("express");
 const path = require("path"); //path module
 const app = express();
+const morgan = require("morgan");
 
 
 //I will use request params to navigate in products
@@ -8,8 +9,15 @@ app.listen(5000, ()=> {
     console.log("Listening server on port 5000. This is from callback func.")
 });
 
+app.use(morgan("dev")); //Use of middleware, (package)
+
+app.get("/", (req, res) => {
+    
+    res.end("home --> /")
+})
+
 app.get("/product/:productId", (req, res)=> {
-    console.log(req.params); //Testing out
+    //console.log(req.params); //Testing out
     requestParams_json = {"request params":req.params}
     res.json(requestParams_json);
 });
@@ -37,10 +45,10 @@ const getData = async () => { //Test
         const respond = await fetch("https://api.open-meteo.com/v1/forecast?latitude=35&longitude=139&current_weather=true");
         const data = await respond.json();
 
-        console.log(data);
+        //console.log(data);
 
     } catch (error) {
-        console.log(error);
+        //console.log(error);
     }
 }
 
@@ -76,4 +84,4 @@ getData();
 
 
 
-//Stayed at 6:10:46 --> Middleware Setup
+//Stayed at 6:44:57 --> Methods
