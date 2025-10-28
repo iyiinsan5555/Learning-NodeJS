@@ -17,5 +17,5 @@ app.get("/", (req, res) => {
 })
 
 
-//I didn't do anything. I already knew the things taught.
-//Stayed at 7:21:22 --> Install Postman
+
+//It's weird that I didn't type any code. But I finished it. Tutorial Name: Node.js and Express.js - Full Course, Channel Name: freeCodeCamp.org, Time: 8:16:47
